@@ -1,0 +1,68 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends base_template %}
+
+{% import 'SonataAdminBundle:CRUD:base_show_macro.html.twig' as show_helper %}
+
+{% block actions %}
+    {#{% include 'SonataAdminBundle:CRUD:action_buttons.html.twig' %}#}
+{% endblock %}
+
+{% block tab_menu %}
+    {{ knp_menu_render(admin.sidemenu(action), {
+        'currentClass' : 'active',
+        'template': sonata_admin.adminPool.getTemplate('tab_menu_template')
+    }, 'twig') }}
+{% endblock %}
+
+{% block show %}
+    {#{{ dump(object) }}#}
+    <div class="cont">
+        <table class="table showTable">
+            <tbody>
+            <tr>
+                <td>Order Number</td>
+                <td>{{ object.id }}</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{ object.userName }}</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>{{ object.userLastName }}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{ object.userMail }}</td>
+            </tr>
+            <tr>
+                <td>Telephone</td>
+                <td>{{ object.userTelephone }}</td>
+            </tr>
+            <tr>
+                <td>Organization</td>
+                <td>{{ object.userOrganization }}</td>
+            </tr>
+            <tr>
+                <td>Order</td>
+                <td>
+                    {% if object.orderList is not null %}
+
+                    {% endif %}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
